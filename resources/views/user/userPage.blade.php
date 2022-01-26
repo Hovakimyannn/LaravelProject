@@ -7,18 +7,18 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link rel="stylesheet" href='css/userPage.css'>
-    <script src="js/todo.js"></script>
+    <script src="js/todo.js" defer></script>
 </head>
 <body>
 <div class="wrapper">
     <header class="header">
         <div class="userUI">
-            <img class="userImage" src="storage/{{\Illuminate\Support\Facades\Auth::user()->userImage}}" alt="img">
-            <form id="form" class="uploadFile" method="post" enctype="multipart/form-data">
-                <input
-                    type="file"
-                    name="image">
+            <form method="post" enctype="multipart/form-data">
+                <input type="file">
                 <button type="submit" id="send"> send </button>
+                <div>
+                    <img class="userImage" id="userImage" src="storage/{{\Illuminate\Support\Facades\Auth::user()->userImage}}" alt="img">
+                </div>
             </form>
 
             <h2 class="userName">{{\Illuminate\Support\Facades\Auth::user()->name}}</h2>

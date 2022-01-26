@@ -78,22 +78,16 @@ class UserController extends Controller
 
     public function changeUserImage(Request $request)
     {
-        $request->validate([
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        ]);
-        $path = $request->file('image');
-        $originalName = $path->getClientOriginalName();
+        $content = $request->getContent();
+        $arr = explode(',', $content);
+        $filename = $arr[0];
+        $string = $arr[2];
+        $img = base64_decode($string);
+        file_put_contents("storage/$filename", $img);
         $employee = Auth::user();
-
         $employee->update([
-            'userImage' => $originalName,
+            'userImage' => $filename,
         ]);
-        $path->storeAs('public/', "storage/$originalName");
-
-        return  response()->json([
-            'success' => "Image Upload Successfully",
-            'uploaded_image' => "<img src='storage/$originalName' class='userImage' />",
-        ]);
-        //return redirect()->route('home');
+        return response($filename);
     }
 }
