@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\MainController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 
@@ -14,3 +15,6 @@ Route::get('/login', [UserController::class, 'loginForm'])->name('login.create')
 Route::post('/login', [UserController::class, 'login'])->name('login');
 Route::get('/logout', [UserController::class, 'logout'])->name('logout')->middleware('auth');
 Route::post('/home/change_user_image', [UserController::class, 'changeUserImage'])->name('changeUserImage');
+
+Route::get('/admin', [MainController::class,'index'])->name('admin.index')->middleware('auth');
+Route::post('/admin/remove', [MainController::class,'remove']);

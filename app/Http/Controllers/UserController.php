@@ -65,7 +65,11 @@ class UserController extends Controller
             'password' => $request->password,
         ])) {
             session()->flash('success', 'You are logged');
-            return redirect()->route('home');
+            if (Auth::user()->is_admin){
+                return redirect()->route('admin.index');
+            } else {
+                return redirect()->route('home');
+            }
         }
         return redirect()->back()->with('error', 'Incorrect login or password');
     }

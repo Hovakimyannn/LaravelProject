@@ -9,16 +9,18 @@ window.onload = function () {
 };
 
 function getBase64(file) {
-    let reader = new FileReader();
-    reader.readAsDataURL(file);
-    let result;
-    reader.onload = function () {
-        request(reader.result, file.name);
-    };
-    reader.onerror = function (error) {
-        result = 'Error: ' + error;
-    };
-    return result;
+    if (file) {
+        let reader = new FileReader();
+        reader.readAsDataURL(file);
+        let result;
+        reader.onload = function () {
+            request(reader.result, file.name);
+        };
+        reader.onerror = function (error) {
+            result = 'Error: ' + error;
+        };
+        return result;
+    }
 }
 
 function request(file, filename) {
@@ -29,13 +31,17 @@ function request(file, filename) {
         }
     }
     XMLHttp.open('post', "/home/change_user_image", true);
-    XMLHttp.setRequestHeader('Accept', 'text/plain');
+    XMLHttp.setRequestHeader('XSRF-TOKEN',getCookie('XSRF-TOKEN'));
+
     XMLHttp.send(filename + ',' + file);
 }
 
-
-
-
+function getCookie(name) {
+    let matches = document.cookie.match(new RegExp(
+        "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+    ));
+    return matches ? decodeURIComponent(matches[1]) : undefined;
+}
 
 
 
