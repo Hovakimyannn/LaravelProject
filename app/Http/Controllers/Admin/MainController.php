@@ -29,4 +29,8 @@ class MainController extends Controller
 
         return response($user);
     }
+
+    public function publicMessage() {
+
+    }
 }

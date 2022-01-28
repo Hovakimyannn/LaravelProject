@@ -17,10 +17,18 @@ class UserController extends Controller
         }
     }
 
+    public function index()
+    {
+        return match (Auth::check()) {
+            true => Auth::user()->is_admin ? redirect()->route('admin.index') : view('user.userPage'),
+            false => redirect()->route('login'),
+        };
+    }
+
     public function create()
     {
         if (Auth::check()) {
-            return redirect()->route('home');
+            return redirect()->route('index');
         } else {
             return view('user.create');
         }
@@ -38,6 +46,7 @@ class UserController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'password' => bcrypt($request->password),
+            'userImage' => 'default.png',
         ]);
         session()->flash('success', 'Registration passed');
         Auth::login($user);
@@ -47,7 +56,7 @@ class UserController extends Controller
     public function loginForm()
     {
         if (Auth::check()) {
-            return redirect()->route('home');
+            return redirect()->route('index');
         } else {
             return view('user.login');
         }
@@ -65,10 +74,10 @@ class UserController extends Controller
             'password' => $request->password,
         ])) {
             session()->flash('success', 'You are logged');
-            if (Auth::user()->is_admin){
+            if (Auth::user()->is_admin) {
                 return redirect()->route('admin.index');
             } else {
-                return redirect()->route('home');
+                return redirect()->route('index');
             }
         }
         return redirect()->back()->with('error', 'Incorrect login or password');
@@ -93,5 +102,11 @@ class UserController extends Controller
             'userImage' => $filename,
         ]);
         return response($filename);
+    }
+
+    public function message()
+    {
+        $fileContent = file_get_contents('storage/admin/publicMessage.txt');
+        return response($fileContent);
     }
 }

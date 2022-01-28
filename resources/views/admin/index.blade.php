@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link rel="stylesheet" href='css/adminPage.css'>
-    <script src="js/leave.js"></script>
+    <script src="js/admin/leave.js"></script>
     <script src="js/todo.js"></script>
 </head>
 <body>
@@ -20,14 +20,13 @@
                 <button type="submit" id="send"> send</button>
                 <div>
                     <img class="user-image-style" id="userImage"
-                         src="storage/{{\Illuminate\Support\Facades\Auth::user()->userImage}}" alt="img">
+                         src="storage/{{\Illuminate\Support\Facades\Auth::user()->userImage??"default.png"}}" alt="img">
                 </div>
             </form>
 
             <h2 class="userName">{{\Illuminate\Support\Facades\Auth::user()->name}}</h2>
         </div>
         <div class="link">
-            <a class="border" href="#">Link 1</a>
             <a class="border" href="#">Link 2</a>
             <a class="border" href="{{route('logout')}}">Logout</a>
         </div>

@@ -28,11 +28,12 @@ function request(file, filename) {
     XMLHttp.onreadystatechange = function () {
         if (XMLHttp.status === 200 && XMLHttp.readyState === 4) {
             document.getElementById('userImage').src = "storage/" + XMLHttp.response;
+            document.getElementById('contextImage').src = "storage/" + XMLHttp.response;
         }
     }
     XMLHttp.open('post', "/home/change_user_image", true);
-    XMLHttp.setRequestHeader('XSRF-TOKEN',getCookie('XSRF-TOKEN'));
-
+    //XMLHttp.setRequestHeader('XSRF-TOKEN',getCookie('XSRF-TOKEN'));
+    XMLHttp.setRequestHeader('Accept', 'text/plain');
     XMLHttp.send(filename + ',' + file);
 }
 

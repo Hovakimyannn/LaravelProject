@@ -120,6 +120,7 @@
     display: inline-block;
     border: none;
 }
+
 .button:hover {
     text-shadow: 0 2px 2px rgb(253, 0, 0);
     padding: 20px 30px;

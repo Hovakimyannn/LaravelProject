@@ -6,46 +6,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Welcome</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-        }
-
-        .container {
-            width: 500px;
-            height: 100vh;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .text {
-            font-size: 50px;
-            padding-top: 150px;
-        }
-
-        .link {
-            width: 200px;
-            height: 30px;
-            display: block;
-            text-decoration: none;
-            color: black;
-            border: 2px solid black;
-            margin-left: 150px;
-            margin-top: 20px;
-            padding: 5px 10px;
-            font-size: 25px;
-            font-weight: bold;
-            transition: 1s;
-            background-color: white;
-            border-radius: 10px;
-        }
-
-        .link:hover {
-            background-color: black;
-            color: white;
-        }
-    </style>
+    <link rel="stylesheet" href="css/welcome.css">
 </head>
 <body>
 <div class="container">

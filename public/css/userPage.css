@@ -5,7 +5,7 @@
     font-family: sans-serif;
 }
 
-.wrapper{
+.wrapper {
     display: flex;
     flex-direction: column;
 }
@@ -17,20 +17,21 @@
     justify-content: center;
 }
 
-.main > .article {
-    flex: 1;
+.article {
+    flex: 3;
 }
 
-.main > .nav, .main > .aside {
+.nav {
     flex: 1;
     background: beige;
 }
 
-.main > .nav {
-    order: -1;
+.aside {
+    flex: 1;
+    background: beige;
 }
 
-.header{
+.header {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -52,7 +53,10 @@
     justify-content: space-around;
     height: 5vh;
 }
-.border{
+
+.border {
+    all:unset;
+    cursor: pointer;
     flex-direction: row;
     color: black;
     padding: 5px 0 0;
@@ -62,8 +66,7 @@
     margin: 10px;
 }
 
-.border:hover{
-    z-index: 1;
+.border:hover {
     padding: 0 0 5px;
     text-shadow: 0 5px 5px #495643;
 }
@@ -73,20 +76,22 @@
     align-self: flex-end;
 }
 
-.userName{
+.userName {
     padding: 0 20px 50px;
     align-self: flex-end;
     font-size: 24px;
     font-weight: bold;
 }
 
-.user-image-style{
+.user-image-style {
     width: 9em;
     height: 9em;
     border-radius: 100%;
+    float:left;
+    margin: 0 10px 10px 0;
 }
 
-.userUI{
+.userUI {
     display: flex;
     flex-wrap: wrap;
 }
@@ -94,6 +99,67 @@
 .uploadFile {
     display: flex;
     height: 20px;
+}
+
+.context-border {
+    background-color: #c4c4c4;
+    display: flex;
+    border: 5px solid #c4c4c4;
+    border-radius: 10px;
+}
+
+.context {
+    padding: 15px;
+    margin: 5px;
+    width: auto;
+    height: 55vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.message-border {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    margin: 15px;
+    background-color: black;
+    height: 400px;
+    width: 350px;
+}
+
+.top-border {
+    display: flex;
+    justify-content: flex-end;
+    background-color: #1f2937;
+    height: 35px;
+}
+
+.close-button {
+    color: #566573 !important;
+    all: unset;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.close-button:hover {
+    background-color: #ff0000;
+    color: whitesmoke !important;
+}
+
+.message-content{
+    width: 350px;
+    height: 370px;
+    background-color: #0e1622;
+    overflow-y: visible;
+    overflow-x: hidden;
+}
+
+.message-text {
+    color: #c7dbe6;
+    font-family: Arial, sans-serif;
+    margin: 10px;
 }
 
 
