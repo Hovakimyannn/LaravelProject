@@ -18,4 +18,4 @@ Route::post('/message', [UserController::class, 'message']);
 
 Route::get('/admin', [MainController::class, 'index'])->name('admin.index')->middleware('auth');
 Route::post('/admin/remove', [MainController::class, 'remove']);
-//Route::post('/admin/message',[MainController::class,'publicMessage']);
+Route::post('/admin/message',[MainController::class,'publicMessage']);

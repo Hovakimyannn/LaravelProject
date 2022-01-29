@@ -167,4 +167,6 @@
     margin: 10px;
 }
 
-
+.hidden {
+    visibility: hidden;
+}

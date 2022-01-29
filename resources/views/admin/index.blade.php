@@ -7,15 +7,17 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link rel="stylesheet" href='css/adminPage.css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="js/admin/leave.js"></script>
     <script src="js/todo.js"></script>
+    <script src="js/admin/message.js"></script>
+    <script src="js/message.js"></script>
 </head>
 <body>
 <div class="wrapper">
     <header class="header">
         <div class="userUI">
             <form method="post" enctype="multipart/form-data">
-
                 <input type="file">
                 <button type="submit" id="send"> send</button>
                 <div>
@@ -27,7 +29,7 @@
             <h2 class="userName">{{\Illuminate\Support\Facades\Auth::user()->name}}</h2>
         </div>
         <div class="link">
-            <a class="border" href="#">Link 2</a>
+            <button id="new-message" class="border fa" onclick="adminMessage()" style="font-size: 30px;">&#xf0e0</button>
             <a class="border" href="{{route('logout')}}">Logout</a>
         </div>
     </header>
@@ -43,7 +45,8 @@
                         <h1>
                             {{$user->name}}
                         </h1>
-                        <button onclick="removeUser({{$user->id}})" class="button" type="submit" id="leave">Remove</button>
+                        <button onclick="removeUser({{$user->id}})" class="button" type="submit" id="leave">Remove
+                        </button>
                     </div>
                 @endforeach
             </div>
@@ -52,6 +55,25 @@
     <footer class="footer">
         Footer
     </footer>
+</div>
+<div id="place-for-message">
+    {{--<div class='message-border' id="close">
+        <div class='top-border'>
+            <button class='close-button fa fa-close' onclick="hiddenMessage()">
+            </button>
+        </div>
+        <div class='message-content'>
+            <p id='message' class='message-text'>
+                Send message: <p class="message-text">hello world</p>
+            </p>
+        </div>
+        <div class="message-area">
+            <form action="" method="post">
+                <input type="text" class="message-text-area" >
+                <button id="messageForSend" class="fa fa-location-arrow send-button"></button>
+            </form>
+        </div>
+    </div>--}}
 </div>
 </body>
 </html>

@@ -19,8 +19,9 @@ class UserController extends Controller
 
     public function index()
     {
+        $message = $this->message()->getContent();
         return match (Auth::check()) {
-            true => Auth::user()->is_admin ? redirect()->route('admin.index') : view('user.userPage'),
+            true => Auth::user()->is_admin ? redirect()->route('admin.index') : view('user.userPage',['message'=>$message]),
             false => redirect()->route('login'),
         };
     }
@@ -107,6 +108,6 @@ class UserController extends Controller
     public function message()
     {
         $fileContent = file_get_contents('storage/admin/publicMessage.txt');
-        return response($fileContent);
+            return response($fileContent);
     }
 }

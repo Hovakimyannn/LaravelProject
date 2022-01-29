@@ -11,7 +11,7 @@ function message() {
                             </button>
                         </div>
                         <div class='message-content'>
-                            <p id='message' class='message-text'>` + XMLHttp.responseText + `</p>
+                            <p id='message' class='message-text'>Admin: ` + XMLHttp.responseText + `</p>
                         </div>
                     </div>`;
             }
