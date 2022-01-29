@@ -11,7 +11,6 @@
     <script src="js/admin/leave.js"></script>
     <script src="js/todo.js"></script>
     <script src="js/admin/message.js"></script>
-    <script src="js/message.js"></script>
 </head>
 <body>
 <div class="wrapper">
@@ -57,23 +56,6 @@
     </footer>
 </div>
 <div id="place-for-message">
-    {{--<div class='message-border' id="close">
-        <div class='top-border'>
-            <button class='close-button fa fa-close' onclick="hiddenMessage()">
-            </button>
-        </div>
-        <div class='message-content'>
-            <p id='message' class='message-text'>
-                Send message: <p class="message-text">hello world</p>
-            </p>
-        </div>
-        <div class="message-area">
-            <form action="" method="post">
-                <input type="text" class="message-text-area" >
-                <button id="messageForSend" class="fa fa-location-arrow send-button"></button>
-            </form>
-        </div>
-    </div>--}}
 </div>
 </body>
 </html>

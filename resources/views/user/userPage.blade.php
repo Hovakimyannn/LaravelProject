@@ -28,7 +28,7 @@
             <h2 class="userName">{{\Illuminate\Support\Facades\Auth::user()->name}}</h2>
         </div>
         <div class="link">
-            <button id="new-message" class="border fa" onclick="message()" style="font-size: 30px;">&#xf0e0</button>
+            <button id="new-message" class="border fa" onclick="updateDisplay()" style="font-size: 30px;" >&#xf0e0</button>
             <a class="border" href="{{route('logout')}}">Logout</a>
         </div>
     </header>
@@ -152,8 +152,8 @@
         Footer
     </footer>
 </div>
+<option id="admin-message" class="hidden" value="{{$message}}"></option>
 <div id="place-for-message">
-    <message id="message" class="hidden" value="{{$message}}"></message>
 </div>
 
 </body>

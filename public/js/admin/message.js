@@ -36,4 +36,9 @@ function adminMessage() {
     })
 }
 
+function hiddenMessage() {
+    let messageElement = document.getElementById('close');
+    messageElement.remove();
+}
+
 
