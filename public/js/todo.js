@@ -1,12 +1,10 @@
-window.onload = function () {
-    const inputElement = document.querySelector("input[type=file]");
-    const buttonElement = document.getElementById("send");
-    buttonElement.addEventListener('click', function (event) {
-            event.preventDefault();
-            getBase64(inputElement.files[0]);
-        }
-    )
-};
+const inputElement = document.querySelector("input[type=file]");
+const buttonElement = document.getElementById("send");
+buttonElement.addEventListener('click', function (event) {
+        event.preventDefault();
+        getBase64(inputElement.files[0]);
+    }
+)
 
 function getBase64(file) {
     if (file) {

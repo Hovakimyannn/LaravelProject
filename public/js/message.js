@@ -47,5 +47,5 @@ function updateDisplay(response) {
 }
 
 window.onload = function () {
-   setInterval(message, 5000);
+    setInterval(message, 5000);
 }
