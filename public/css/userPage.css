@@ -12,8 +12,9 @@
 }
 
 .main {
+    background-image: url("../img/asides.jpg");
     display: flex;
-    height: 60vh;
+    height: 59.7vh;
     flex-flow: row wrap;
     justify-content: center;
 }
@@ -24,12 +25,12 @@
 
 .nav {
     flex: 1;
-    background: beige;
+    background-image: url("../img/asides.jpg");
 }
 
 .aside {
     flex: 1;
-    background: beige;
+    background-image: url("../img/asides.jpg");
 }
 
 .header {
@@ -38,12 +39,12 @@
     justify-content: space-between;
 }
 
-.header, .footer, .article, .nav, .aside {
+.header, .footer{
     padding: 1em;
 }
 
 .header, .footer {
-    background: yellowgreen;
+    background-image: url("../img/header-footer.jpg");
     min-height: 20vh;
 }
 
@@ -69,7 +70,7 @@
 
 .border:hover {
     padding: 0 0 5px;
-    text-shadow: 0 5px 5px #495643;
+    text-shadow: 0 3px 5px #cdcdcd;
 }
 
 .user {

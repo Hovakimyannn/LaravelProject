@@ -8,9 +8,9 @@
     <title>Document</title>
     <link rel="stylesheet" href='css/adminPage.css'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="js/admin/leave.js"></script>
-    <script src="js/todo.js"></script>
-    <script src="js/admin/message.js"></script>
+    <script src="js/admin/leave.js" defer></script>
+    <script src="js/todo.js" defer></script>
+    <script src="js/admin/message.js" defer></script>
 </head>
 <body>
 <div class="wrapper">
@@ -52,7 +52,6 @@
         </article>
     </main>
     <footer class="footer">
-        Footer
     </footer>
 </div>
 <div id="place-for-message">

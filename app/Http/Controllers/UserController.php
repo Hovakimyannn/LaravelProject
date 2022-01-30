@@ -21,7 +21,7 @@ class UserController extends Controller
     {
         $message = file_get_contents('storage/admin/publicMessage.txt');
         return match (Auth::check()) {
-            true => Auth::user()->is_admin ? redirect()->route('admin.index') : view('user.userPage',['message'=>$message]),
+            true => Auth::user()->is_admin ? redirect()->route('admin.index') : view('user.userPage', ['message' => $message]),
             false => redirect()->route('login'),
         };
     }
@@ -51,7 +51,7 @@ class UserController extends Controller
         ]);
         session()->flash('success', 'Registration passed');
         Auth::login($user);
-        return view('user.userPage');
+        return redirect()->route('index');
     }
 
     public function loginForm()
@@ -81,7 +81,7 @@ class UserController extends Controller
                 return redirect()->route('index');
             }
         }
-        return redirect()->back()->with('error', 'Incorrect login or password');
+        return back()->with('error', 'Incorrect login or password');
     }
 
     public function logout()
@@ -92,16 +92,24 @@ class UserController extends Controller
 
     public function changeUserImage(Request $request)
     {
+        $dbImage = Auth::user()->userImage;
+        $oldImage = $request->user()->userImage;
         $content = $request->getContent();
         $arr = explode(',', $content);
-        $filename = $arr[0];
-        $string = $arr[2];
-        $img = base64_decode($string);
-        file_put_contents("storage/$filename", $img);
-        $employee = Auth::user();
-        $employee->update([
-            'userImage' => $filename,
-        ]);
+        $filename = uniqid() . $arr[0];
+        if ($oldImage === $dbImage) {
+            if ($oldImage != 'default.png') {
+                unlink("storage/$oldImage");
+            }
+            $string = $arr[2];
+            $img = base64_decode($string);
+            file_put_contents("storage/$filename", $img);
+            $employee = Auth::user();
+            $employee->update([
+                'userImage' => $filename,
+            ]);
+        }
+
         return response($filename);
     }
 
@@ -109,7 +117,7 @@ class UserController extends Controller
     {
         $fileContent = file_get_contents('storage/admin/publicMessage.txt');
         $requestText = $request->getContent();
-        if($requestText == $fileContent){
+        if ($requestText == $fileContent) {
             return response(false);
         } else {
             return response($fileContent);

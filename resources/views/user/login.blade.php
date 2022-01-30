@@ -2,15 +2,20 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Sign In</title>
-    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <link rel="stylesheet" href="css/login.css">
 </head>
 <body>
 <div class="container">
     <h1 class="text">Login</h1>
+    @if(session('error'))
+        <div style="color: red">
+            {{session("error")}}
+        </div>
+    @endif
     <form action="{{route('login')}}" method="post">
         @csrf
         <input type="email" placeholder="email" name="email">
@@ -20,3 +25,6 @@
 </div>
 </body>
 </html>
+
+
+
